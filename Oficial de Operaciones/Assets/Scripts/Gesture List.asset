@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe1b08c2a50d6644969dc52f1738304, type: 3}
+  m_Name: Gesture List
+  m_EditorClassIdentifier: 
+  Gestures:
+  - name: 
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 1a0000001a000000
+    rightHandList: 1a0000001a000000
+  - name: Identity Gate
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 0400000005000000
+    rightHandList: 0700000006000000
+  - name: Continue Straight Ahead
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 0100000002000000
+    rightHandList: 0a00000009000000
+  - name: Slow Down
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 020000000a000000
+    rightHandList: 090000000b000000
+  - name: Turn Right
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 0100000000000000
+    rightHandList: 0a00000009000000
+  - name: Turn Left
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 0100000002000000
+    rightHandList: 0a00000000000000
+  - name: Stop
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 0100000008000000
+    rightHandList: 0a00000003000000
+  - name: Hold Position
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 0c00000000000000
+    rightHandList: 0d00000000000000
+  - name: 
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 1a0000001a000000
+    rightHandList: 1a0000001a000000
+  - name: End Marshaling
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 0c00000000000000
+    rightHandList: 0200000000000000
+  - name: 
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 1a0000001a000000
+    rightHandList: 1a0000001a000000
+  - name: 
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 1a0000001a000000
+    rightHandList: 1a0000001a000000
+  - name: 
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 1a0000001a000000
+    rightHandList: 1a0000001a000000
+  - name: Chocks Inseted
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 0f00000000000000
+    rightHandList: 0e00000000000000
+  - name: Chocks Removed
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 0e00000000000000
+    rightHandList: 0f00000000000000
+  - name: 
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 1a0000001a000000
+    rightHandList: 1a0000001a000000
+  - name: 
+    TimeForRaycastToRegister: 0.2
+    TimeLeftUntilHitNextColider: 0
+    leftHandList: 1a0000001a000000
+    rightHandList: 1a0000001a000000
