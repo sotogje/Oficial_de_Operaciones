@@ -5,65 +5,74 @@ using UnityEngine;
 public class LaunchRaycast : MonoBehaviour
 {
     public bool rightHand;
-    public LayerMask layerMask;
-    public SphereColliders sphereColliders_Script;
+    public LayerMask targetMask;
+    [HideInInspector] public TargetColliders targetColliders_Script;
     private float rayDir;
 
-    public bool canShootRay;
+    [SerializeField] private bool GotInfo;
+    [SerializeField] private float TimeForRegister;
+    [SerializeField] private float CurrentTimer;
+    [SerializeField] private bool HasBeenAdded;
 
     private void Start()
     {
         rayDir = rightHand == true ? 1 : -1;
-        canShootRay = true;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (canShootRay)
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up) * rayDir, out hit, Mathf.Infinity, targetMask))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up) * rayDir, out hit, Mathf.Infinity, layerMask))
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * rayDir * hit.distance, Color.green);
+            targetColliders_Script = hit.transform.gameObject.GetComponent<TargetColliders>();
+            if (targetColliders_Script)
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * rayDir * hit.distance, Color.green);
-                sphereColliders_Script = hit.transform.gameObject.GetComponent<SphereColliders>();
-                if (sphereColliders_Script)
-                {
-                    OnRayHit();
-                }
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * rayDir * 1000, Color.red);
-                OnRayExit();
+                //OnRayHit();
+                if (!HasBeenAdded) targetColliders_Script.SetRenderColor(Color.yellow);
+                if(!GotInfo) GetTargetInfo(targetColliders_Script);
+                RunTimer();
             }
         }
         else
         {
-            OnRayExit(); 
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * rayDir * 1000, Color.red);
+                
+            OnRayExit();
         }
     }
 
     private void OnRayHit()
     {
-        sphereColliders_Script.SelectThis(rightHand);
+        //targetColliders_Script.SelectThis(rightHand);
     }
     private void OnRayExit()
     {
-        if (sphereColliders_Script)
+        if (targetColliders_Script)
         {
-            sphereColliders_Script.DeselectThis(rightHand);
-            sphereColliders_Script = null;
+            GotInfo = false;
+            CurrentTimer = 0;
+            HasBeenAdded = false;
+            targetColliders_Script.SetRenderColor(Color.red);
+            targetColliders_Script.DeselectThis(rightHand);
+            targetColliders_Script = null;
         }
     }
-
-    public void RestartRay()
+    private void GetTargetInfo(TargetColliders _object)
     {
-        canShootRay = false;
-        Invoke("CanShootRayAgain", 0.5f);
+        TimeForRegister = _object.timeForRegiste;
+        GotInfo = true;
     }
-    
-    private void CanShootRayAgain()
+    private void RunTimer()
     {
-        canShootRay = true;
+        CurrentTimer += Time.deltaTime;
+        if (!HasBeenAdded && CurrentTimer > TimeForRegister)
+        {
+            targetColliders_Script.AddToList(rightHand);
+            HasBeenAdded = true;
+            targetColliders_Script.SetText(rightHand, targetColliders_Script.ID.ToString());
+            targetColliders_Script.SetRenderColor(Color.green);
+
+        }
     }
 }

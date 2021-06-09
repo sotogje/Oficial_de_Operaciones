@@ -7,8 +7,6 @@ public class MasterAnimator : MonoBehaviour
     public Animator LeftHandAnimator;
     public Animator RightHandAnimator;
 
-    public bool TurnLeft;
-
     public void DoIdel()
     {
         LeftHandAnimator.SetBool("Turn_Left", false);
@@ -18,14 +16,14 @@ public class MasterAnimator : MonoBehaviour
         LeftHandAnimator.SetBool("Face_Me", false);
         RightHandAnimator.SetBool("Face_Me", false);
     }
-    public void DoTurnLeft()
+    public void DoTurnRight()
     {
         DoIdel();
         string _action = "Turn_Left";
         LeftHandAnimator.SetBool(_action, !LeftHandAnimator.GetBool(_action));
         RightHandAnimator.SetBool(_action, !RightHandAnimator.GetBool(_action));
     }
-    public void DoTurnRight()
+    public void DoTurnLeft()
     {
         DoIdel();
         string _action = "Turn_Right";

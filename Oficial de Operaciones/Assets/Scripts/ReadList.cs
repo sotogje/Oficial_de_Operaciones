@@ -13,9 +13,47 @@ public class ReadList : MonoBehaviour
 
     public bool runTest;
 
+    private NewGameManager NewGameManager_Script;
+    private ResultText ResultText_Script;
+
+    private void Start()
+    {
+        NewGameManager_Script = GetComponent<NewGameManager>();
+        ResultText_Script = GetComponent<ResultText>();
+    }
+
     private void Update()
     {
         if (runTest) RunTest();
+    }
+
+    public void AddToRightList(TargetCode _id)
+    {
+        if(rightList[0] == TargetCode.NA)
+        {
+            //ADD TO POSITION 0 ON LIST
+            rightList[0] = _id;
+        }
+        else
+        {
+            //ADD TO POSITION 1 ON LIST
+            rightList[1] = _id;
+            runTest = true;
+        }
+    }
+    public void AddToLeftList(TargetCode _id)
+    {
+        if(leftList[0] == TargetCode.NA)
+        {
+            //ADD TO POSITION 0 ON LIST
+            leftList[0] = _id;
+        }
+        else
+        {
+            //ADD TO POSITION 1 ON LIST
+            leftList[1] = _id;
+            runTest = true;
+        }
     }
 
     public void RunTest()
@@ -34,7 +72,7 @@ public class ReadList : MonoBehaviour
         }
 
         ResetList();
-
+        NewGameManager_Script.DeactivateTargets();
         runTest = false;
     }
 
@@ -89,6 +127,7 @@ public class ReadList : MonoBehaviour
                         else
                         {
                             Debug.Log("RIGHT LIST IS NOT THE SAME SIZE AS DATABASE, LENGTH MUST BE '2'.");
+                            ResultText_Script.SetCommandText("No Movement");
                             return false;
                         }
 
@@ -97,7 +136,7 @@ public class ReadList : MonoBehaviour
                     {
                         _hasfoundmatch = true;
                         _handlist.Reverse();
-                        Debug.Log("NO MATCHES YET, CHECKING LIST FROM END TO START");
+                        //Debug.Log("NO MATCHES YET, CHECKING LIST FROM END TO START");
 
                         //CHECKS IF LIST IS THE SAME AS DATABASE CHECK LIST FROM FINISH TO START
                         for (int l = 0; l < _handlist.Count; l++)
@@ -115,6 +154,7 @@ public class ReadList : MonoBehaviour
                             else
                             {
                                 Debug.Log("RIGHT LIST IS NOT THE SAME SIZE AS DATABASE, LENGTH MUST BE '2'.");
+                                ResultText_Script.SetCommandText("No Movement");
                                 return false;
                             }
 
@@ -124,11 +164,13 @@ public class ReadList : MonoBehaviour
                     if (_hasfoundmatch)
                     {
                         Debug.Log("MATCH FOUND FOR RIGHT IN LIST: " + _gestureList.Gestures[i].name);
+                        ResultText_Script.SetCommandText(_gestureList.Gestures[i].name);
                         rightGestureName = _gestureList.Gestures[i].name;
                         return true;
                     }                    
                 }
             }
+            ResultText_Script.SetCommandText("No Movement");
             return false;
         }
         else
@@ -158,6 +200,7 @@ public class ReadList : MonoBehaviour
                         else
                         {
                             Debug.Log("LEFT LIST IS NOT THE SAME SIZE AS DATABASE, LENGTH MUST BE " + _gestureList.Gestures[i].leftHandList.Count);
+                            ResultText_Script.SetCommandText("No Movement");
                             return false;
                         }
 
@@ -184,6 +227,7 @@ public class ReadList : MonoBehaviour
                             else
                             {
                                 Debug.Log("LEFT LIST IS NOT THE SAME SIZE AS DATABASE, LENGTH MUST BE " + _gestureList.Gestures[i].leftHandList.Count);
+                                ResultText_Script.SetCommandText("No Movement");
                                 return false;
                             }
 
@@ -193,11 +237,13 @@ public class ReadList : MonoBehaviour
                     if (_hasfoundmatch)
                     {
                         Debug.Log("MATCH FOUND LEFT IN LIST: " + _gestureList.Gestures[i].name);
+                        ResultText_Script.SetCommandText(_gestureList.Gestures[i].name);
                         leftGestureName = _gestureList.Gestures[i].name;
                         return true;
                     }
                 }
             }
+            ResultText_Script.SetCommandText("No Movement");
             return false;
         }
     }

@@ -6,7 +6,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GestureDatabase gestureList;
+    //[SerializeField] private GestureDatabase gestureList;
 
 
     [Header("UI Debug")]
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public string lastGesture;
 
-    public SphereColliders[] targets;
+    public TargetColliders[] targets;
 
 
     private void Start()
@@ -172,8 +172,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetRayCast()
     {
-        RightRaycast.RestartRay();
-        LeftRaycast.RestartRay();
+        //RightRaycast.RestartRay();
+        //LeftRaycast.RestartRay();
     }
 
     public void SetResult(string _result)
@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void CheckStaticPosition()
-    {
+    {/*
         if (targets[6].isActivated && targets[7].isActivated)
         {
             resultTxt.text = "Standing By";
@@ -195,6 +195,6 @@ public class GameManager : MonoBehaviour
         {
             resultTxt.text = "";
             CheckIfArrayIsFill();
-        }
+        }*/
     }
 }

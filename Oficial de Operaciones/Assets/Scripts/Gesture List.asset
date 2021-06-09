@@ -16,43 +16,43 @@ MonoBehaviour:
   - name: 
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
-    leftHandList: 1a0000001a000000
-    rightHandList: 1a0000001a000000
+    leftHandList: 1700000017000000
+    rightHandList: 1700000017000000
   - name: Identity Gate
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
-    leftHandList: 0400000005000000
-    rightHandList: 0700000006000000
+    leftHandList: 1700000017000000
+    rightHandList: 1700000017000000
   - name: Continue Straight Ahead
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
-    leftHandList: 0100000002000000
-    rightHandList: 0a00000009000000
+    leftHandList: 1700000017000000
+    rightHandList: 1700000017000000
   - name: Slow Down
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
-    leftHandList: 020000000a000000
-    rightHandList: 090000000b000000
+    leftHandList: 0100000007000000
+    rightHandList: 0600000008000000
   - name: Turn Right
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
     leftHandList: 0100000000000000
-    rightHandList: 0a00000009000000
+    rightHandList: 0600000003000000
   - name: Turn Left
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
-    leftHandList: 0100000002000000
-    rightHandList: 0a00000000000000
+    leftHandList: 0100000008000000
+    rightHandList: 0600000000000000
   - name: Stop
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
-    leftHandList: 0100000008000000
-    rightHandList: 0a00000003000000
+    leftHandList: 1700000017000000
+    rightHandList: 1700000017000000
   - name: Hold Position
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
-    leftHandList: 0c00000000000000
-    rightHandList: 0d00000000000000
+    leftHandList: 1700000017000000
+    rightHandList: 1700000017000000
   - name: 
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
@@ -61,8 +61,8 @@ MonoBehaviour:
   - name: End Marshaling
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
-    leftHandList: 0c00000000000000
-    rightHandList: 0200000000000000
+    leftHandList: 1700000017000000
+    rightHandList: 1700000017000000
   - name: 
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
@@ -81,13 +81,13 @@ MonoBehaviour:
   - name: Chocks Inseted
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
-    leftHandList: 0f00000000000000
-    rightHandList: 0e00000000000000
+    leftHandList: 0700000000000000
+    rightHandList: 0200000000000000
   - name: Chocks Removed
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
-    leftHandList: 0e00000000000000
-    rightHandList: 0f00000000000000
+    leftHandList: 0200000000000000
+    rightHandList: 0700000000000000
   - name: 
     TimeForRaycastToRegister: 0.2
     TimeLeftUntilHitNextColider: 0
