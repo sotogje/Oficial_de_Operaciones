@@ -6,6 +6,7 @@ public class TargetColliders : MonoBehaviour
 {
     public TargetCode ID = new TargetCode();
     public bool isActivated;
+    public bool isIndependent;
     public bool hitWithRightHand;
     [Range(0.05f, 1.0f)] public float timeForRegiste = 0.2f;
 
@@ -55,10 +56,17 @@ public class TargetColliders : MonoBehaviour
         if(_isroghthand) ResultText_Script.SetRightHandText(_text);
         else ResultText_Script.SetLeftHandText(_text);
     }
+    
+    ////////////////////////////////////////
+    public void AddToIndependentList(TargetCode _id, bool _isrighthand)
+    {
+        newGameManager_Script.AddToIndependenList(_id, _isrighthand);
+        Debug.Log(this.gameObject.name + " Has been Added to INDEPENDET list");
+    }
 
     public void AddToList(bool _isrighthand)
     {
-        if(ID == TargetCode.Y || ID == TargetCode.Z)
+        if(ID == TargetCode.Z || ID == TargetCode.Z)
         {
             Debug.Log(this.gameObject.name + " Has NOT been Added to list");
             if (_isrighthand) ResultText_Script.SetRightHandText(ID.ToString());

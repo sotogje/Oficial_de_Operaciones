@@ -9,6 +9,9 @@ public class NewGameManager : MonoBehaviour
     private ReadList ListOfTargets;
     public TargetColliders[] TargetColliders_Scrip;
 
+    public TargetCode leftIndependent;
+    public TargetCode rightIndependent;
+
     public LaunchRaycast LeftRaycast;
     public LaunchRaycast RightRaycast;
 
@@ -38,6 +41,19 @@ public class NewGameManager : MonoBehaviour
             ResultText_Script.SetLeftHandText("");
             ResultText_Script.SetCommandText("");
         }*/
+
+        if(leftIndependent != TargetCode.NA && rightIndependent != TargetCode.NA)
+        {
+            if(leftIndependent == TargetCode.X && rightIndependent == TargetCode.Y)
+            {
+                ResultText_Script.SetCommandText("Hold Position");
+            }
+            else
+            {
+                leftIndependent = TargetCode.NA;
+                rightIndependent = TargetCode.NA;
+            }
+        }
     }
 
     public bool CheckIfStandingBy()
@@ -64,6 +80,20 @@ public class NewGameManager : MonoBehaviour
     {
         ListOfTargets.AddToLeftList(_id);
     }
+
+    ///////////////////////////////////////////////////////////
+    public void AddToIndependenList(TargetCode _id, bool _isrighthand)
+    {
+        if(_isrighthand)
+        {
+            rightIndependent = _id;
+        }
+        else
+        {
+            leftIndependent = _id;
+        }
+    }
+
 
     private void SowResults(string _result)
     {

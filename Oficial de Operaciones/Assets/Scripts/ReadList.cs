@@ -25,6 +25,12 @@ public class ReadList : MonoBehaviour
     private void Update()
     {
         if (runTest) RunTest();
+        /*
+        if(leftList[0] == TargetCode.X && rightList[0] == TargetCode.Y)
+        {
+            Debug.Log("STAND BY");
+            ResetList();
+        }*/
     }
 
     public void AddToRightList(TargetCode _id)

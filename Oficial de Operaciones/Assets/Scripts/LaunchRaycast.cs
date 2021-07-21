@@ -14,6 +14,7 @@ public class LaunchRaycast : MonoBehaviour
     [SerializeField] private float CurrentTimer;
     [SerializeField] private bool HasBeenAdded;
 
+
     private void Start()
     {
         rayDir = rightHand == true ? 1 : -1;
@@ -55,6 +56,8 @@ public class LaunchRaycast : MonoBehaviour
             HasBeenAdded = false;
             targetColliders_Script.SetRenderColor(Color.red);
             targetColliders_Script.DeselectThis(rightHand);
+            targetColliders_Script.isActivated = false;
+            targetColliders_Script.AddToIndependentList(TargetCode.NA, rightHand);
             targetColliders_Script = null;
         }
     }
@@ -68,11 +71,22 @@ public class LaunchRaycast : MonoBehaviour
         CurrentTimer += Time.deltaTime;
         if (!HasBeenAdded && CurrentTimer > TimeForRegister)
         {
-            targetColliders_Script.AddToList(rightHand);
-            HasBeenAdded = true;
-            targetColliders_Script.SetText(rightHand, targetColliders_Script.ID.ToString());
-            targetColliders_Script.SetRenderColor(Color.green);
-
+            if(targetColliders_Script.isIndependent)
+            {
+                targetColliders_Script.AddToIndependentList(targetColliders_Script.ID, rightHand);
+                HasBeenAdded = true;
+                targetColliders_Script.SetText(rightHand, targetColliders_Script.ID.ToString());
+                targetColliders_Script.SetRenderColor(Color.green);
+                targetColliders_Script.isActivated = true;
+            }
+            else
+            {
+                targetColliders_Script.AddToList(rightHand);
+                HasBeenAdded = true;
+                targetColliders_Script.SetText(rightHand, targetColliders_Script.ID.ToString());
+                targetColliders_Script.SetRenderColor(Color.green);
+                targetColliders_Script.isActivated = true;
+            }
         }
     }
 }
