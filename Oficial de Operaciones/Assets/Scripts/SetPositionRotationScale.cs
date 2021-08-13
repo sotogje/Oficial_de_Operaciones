@@ -19,6 +19,7 @@ public class listOfObjectsToChangePositionRotationScale
     public Vector3 PositionOffset;
     [Header("Dynamic Position")]
     //public bool useDynamicPosition;
+    public bool NegativeDynamicX; 
     public bool dynamicX;
     public bool dynamicY;
     public bool dynamicZ;
@@ -131,82 +132,87 @@ public class SetPositionRotationScale : MonoBehaviour
             float _yscl = 0;
             float _zscl = 0;
 
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            /*
-            if (ObjectsToChangePosition[i].dynamicX)
-            {
-                _xpos = ObjectsToChangePosition[i].dynamicX ? (-ObjectToFollow.position.y / 5 * 4) * ObjectsToChangePosition[i].PositionOffset.x + ObjectToFollow.position.x : ObjectToFollow.position.x;
-            }
-            else
-            {
-                _xpos = ObjectsToChangePosition[i].applyToX ? inicialObjctsToChangePosition[i].x + ObjectToFollow.position.x : inicialObjctsToChangePosition[i].x;
-            }
-
-
-
-            if (ObjectsToChangePosition[i].dynamicY)
-            {
-                _ypos = ObjectsToChangePosition[i].dynamicY ? (ObjectToFollow.position.y - (ObjectToFollow.position.y / 5)) * ObjectsToChangePosition[i].PositionOffset.y : ObjectToFollow.position.y;
-            }
-            else
-            {
-                _ypos = ObjectsToChangePosition[i].applyToY ? inicialObjctsToChangePosition[i].y + ObjectToFollow.position.y : inicialObjctsToChangePosition[i].y;
-            }
-
-
-
-            if (ObjectsToChangePosition[i].dynamicZ)
-            {
-                _zpos = ObjectsToChangePosition[i].dynamicZ ? ObjectToFollow.position.z + ObjectsToChangePosition[i].PositionOffset.z : ObjectToFollow.position.z;
-            }
-            else
-            {
-                _zpos = ObjectsToChangePosition[i].applyToZ ? inicialObjctsToChangePosition[i].z + ObjectToFollow.position.z : inicialObjctsToChangePosition[i].z;
-            }
-            */
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-            /*
-            if (ObjctsToChangePosition[i].dynamicX) _xpos = ObjctsToChangePosition[i].dynamicX ? (-ObjectToFollow.position.y / 5 * 4) * ObjctsToChangePosition[i].PositionOffset.x + ObjectToFollow.position.x : ObjectToFollow.position.x;
-            else _xpos = ObjctsToChangePosition[i].applyToX ? inicialObjctsToChangePosition[i].x + ObjectToFollow.position.x : inicialObjctsToChangePosition[i].x;
-            
-            if (ObjctsToChangePosition[i].dynamicY) _ypos = ObjctsToChangePosition[i].dynamicY ? (ObjectToFollow.position.y - (ObjectToFollow.position.y / 5)) * ObjctsToChangePosition[i].PositionOffset.y : ObjectToFollow.position.y;
-            else _ypos = ObjctsToChangePosition[i].applyToY ? inicialObjctsToChangePosition[i].y + ObjectToFollow.position.y : inicialObjctsToChangePosition[i].y;
-            
-            if (ObjctsToChangePosition[i].dynamicZ) _zpos = ObjctsToChangePosition[i].dynamicZ ? ObjectToFollow.position.z + ObjctsToChangePosition[i].PositionOffset.z : ObjectToFollow.position.z;
-            else _zpos = ObjctsToChangePosition[i].applyToZ ? inicialObjctsToChangePosition[i].z + ObjectToFollow.position.z : inicialObjctsToChangePosition[i].z;
-            
-            _newpos = new Vector3(_xpos, _ypos, _zpos);
-
-
-            ObjctsToChangePosition[i].ObjctsToChangeTransform.GetChild(0).position = _newpos;
-            */
-
-
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+            int _dinamicxdir = 1;
 
             Transform currentObj = ObjectsToModifyTransform[i].ObjectToModify;
 
-            Vector3 _movemnt;
+            if (ObjectsToModifyTransform[i].NegativeDynamicX) _dinamicxdir = -1;
+
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           /*
+           if (ObjectsToChangePosition[i].dynamicX)
+           {
+               _xpos = ObjectsToChangePosition[i].dynamicX ? (-ObjectToFollow.position.y / 5 * 4) * ObjectsToChangePosition[i].PositionOffset.x + ObjectToFollow.position.x : ObjectToFollow.position.x;
+           }
+           else
+           {
+               _xpos = ObjectsToChangePosition[i].applyToX ? inicialObjctsToChangePosition[i].x + ObjectToFollow.position.x : inicialObjctsToChangePosition[i].x;
+           }
+
+
+
+           if (ObjectsToChangePosition[i].dynamicY)
+           {
+               _ypos = ObjectsToChangePosition[i].dynamicY ? (ObjectToFollow.position.y - (ObjectToFollow.position.y / 5)) * ObjectsToChangePosition[i].PositionOffset.y : ObjectToFollow.position.y;
+           }
+           else
+           {
+               _ypos = ObjectsToChangePosition[i].applyToY ? inicialObjctsToChangePosition[i].y + ObjectToFollow.position.y : inicialObjctsToChangePosition[i].y;
+           }
+
+
+
+           if (ObjectsToChangePosition[i].dynamicZ)
+           {
+               _zpos = ObjectsToChangePosition[i].dynamicZ ? ObjectToFollow.position.z + ObjectsToChangePosition[i].PositionOffset.z : ObjectToFollow.position.z;
+           }
+           else
+           {
+               _zpos = ObjectsToChangePosition[i].applyToZ ? inicialObjctsToChangePosition[i].z + ObjectToFollow.position.z : inicialObjctsToChangePosition[i].z;
+           }
+           */
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+           /*
+           if (ObjctsToChangePosition[i].dynamicX) _xpos = ObjctsToChangePosition[i].dynamicX ? (-ObjectToFollow.position.y / 5 * 4) * ObjctsToChangePosition[i].PositionOffset.x + ObjectToFollow.position.x : ObjectToFollow.position.x;
+           else _xpos = ObjctsToChangePosition[i].applyToX ? inicialObjctsToChangePosition[i].x + ObjectToFollow.position.x : inicialObjctsToChangePosition[i].x;
+
+           if (ObjctsToChangePosition[i].dynamicY) _ypos = ObjctsToChangePosition[i].dynamicY ? (ObjectToFollow.position.y - (ObjectToFollow.position.y / 5)) * ObjctsToChangePosition[i].PositionOffset.y : ObjectToFollow.position.y;
+           else _ypos = ObjctsToChangePosition[i].applyToY ? inicialObjctsToChangePosition[i].y + ObjectToFollow.position.y : inicialObjctsToChangePosition[i].y;
+
+           if (ObjctsToChangePosition[i].dynamicZ) _zpos = ObjctsToChangePosition[i].dynamicZ ? ObjectToFollow.position.z + ObjctsToChangePosition[i].PositionOffset.z : ObjectToFollow.position.z;
+           else _zpos = ObjctsToChangePosition[i].applyToZ ? inicialObjctsToChangePosition[i].z + ObjectToFollow.position.z : inicialObjctsToChangePosition[i].z;
+
+           _newpos = new Vector3(_xpos, _ypos, _zpos);
+
+
+           ObjctsToChangePosition[i].ObjctsToChangeTransform.GetChild(0).position = _newpos;
+           */
+
+
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+           Vector3 _movemnt;
             Vector3 _rotatedmovemnt;
 
             //CHECK WHAT POSITION TO INCLUDE 
-            if (ObjectsToModifyTransform[i].dynamicX) _xpos =  (ObjectToFollow.position.x + inicialObjctsToChangePosition[i].x);
-            else _xpos = ObjectsToModifyTransform[i].applyPosToX ? ObjectToFollow.position.x + inicialObjctsToChangePosition[i].x : inicialObjctsToChangePosition[i].x;
+            if (ObjectsToModifyTransform[i].dynamicX) _xpos =  (ObjectToFollow.position.x + inicialObjctsToChangePosition[i].x) + ((ObjectToFollow.position.y / 5 * 4) * _dinamicxdir);
+            else _xpos = ObjectsToModifyTransform[i].applyPosToX ? ObjectToFollow.position.x + inicialObjctsToChangePosition[i].x + ObjectsToModifyTransform[i].PositionOffset.x : inicialObjctsToChangePosition[i].x;
 
 
 
